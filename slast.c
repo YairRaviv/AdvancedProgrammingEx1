@@ -24,15 +24,21 @@ int main(int argc, char * argv[])
 
 {
 
+    int number;
+
 if(argc <2)
 
 {
 
-    exit(1);
+    number = 1;
 
 }
 
-int number =atoi(argv[1]);
+else{
+
+number =atoi(argv[1]);
+
+}
 
 struct utmp current_user;
 
