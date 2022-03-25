@@ -32,6 +32,13 @@ int main(int argc, char * argv[])
         perror(path_wtmp);
         exit(1);
     }
+    FILE *fp = fopen(path_wtmp,"r");
+
+    fseek(fp,0,SEEK_END);
+    long total_size = ftell(fp);
+    fclose(fp);
+    int total_users = total_size/size_utmp;
+
     lseek(fd,0,SEEK_SET);
 
     int a = read(fd,&current_user,size_utmp);
@@ -43,7 +50,7 @@ int main(int argc, char * argv[])
 
     time_t prev_time = 0;
 
-    while (read(fd,&current_user,size_utmp) == size_utmp && counter<number)
+    while (read(fd,&current_user,size_utmp) == size_utmp && counter<number && i <= total_users)
     {
         if(current_user.ut_type == 2 || current_user.ut_type == 7 ) 
         {
