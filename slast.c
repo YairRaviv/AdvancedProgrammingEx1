@@ -41,8 +41,8 @@ int main(int argc, char * argv[])
 
     lseek(fd,0,SEEK_SET);
 
-    int a = read(fd,&current_user,size_utmp);
-    time_t first_log = current_user.ut_tv.tv_sec;
+    //int a = read(fd,&current_user,size_utmp);
+    //time_t first_log = current_user.ut_tv.tv_sec;
 
     int i = 1;
     int counter = 0;
@@ -66,9 +66,9 @@ int main(int argc, char * argv[])
 
     }
     printf("\n");
-    char *cp;
-    cp = ctime (&first_log);
-    printf ("wtmp begins %s", cp);
+    //char *cp;
+    //cp = ctime (&first_log);
+    //printf ("wtmp begins %s", cp);
     close(fd);
     return 0;
 }
