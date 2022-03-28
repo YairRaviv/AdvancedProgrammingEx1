@@ -14,13 +14,19 @@ void show_time(time_t cur_time);
 int main(int argc, char * argv[])
 {
     int number;
-    if(argc <2)
+    if(argc != 2 )
     {
         return -1;
     }
-
     else
     {
+        for (int i = 0, n = strlen(argv[1]); i < n; i++)
+            {
+            if (!isdigit(argv[1][i]))
+               {
+                 return -1;}    
+            }
+
         number =atoi(argv[1]);
     }
     struct utmp current_user;
